@@ -1,0 +1,7 @@
+.terraform
+*tfstate*
+tmp
+.idea
+*.log
+*tfplan*
+plan.svg
