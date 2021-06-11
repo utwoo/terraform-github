@@ -27,7 +27,7 @@ jobs:
           TF_VAR_agent_client_secret: ${{ secrets.TF_VAR_agent_client_secret }}
           TF_VAR_subscription_id: ${{ secrets.TF_VAR_subscription_id }}
           TF_VAR_tenant_id: ${{ secrets.TF_VAR_tenant_id }}
-          TF_VAR_storage_access_key: ${{ secrets.TF_VAR_storage_access_key }}
+          TF_VAR_storage_access_key: ${{ secrets.TF_VAR_tenant_id }}
 
       - name: Terraform Validate
         id: validate
