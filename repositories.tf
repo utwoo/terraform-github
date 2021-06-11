@@ -1,11 +1,9 @@
 terraform {
   backend "azurerm" {
+    resource_group_name  = "utwoo-dev"
     storage_account_name = "tfstorage"
     container_name       = "general"
     key                  = "github-repo.tfstate"
-    use_msi              = true
-    subscription_id      = var.subscription_id
-    tenant_id            = var.tenant_id
   }
 
   required_providers {
