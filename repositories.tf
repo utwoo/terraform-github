@@ -15,6 +15,5 @@ module terraform_test {
     source = "./modules/repo-base"
 
     name = "terraform-test"
-    desc = "this repo create by terraform."
-    default_branch = "master"
+    description = "this repo create by terraform."
 }

@@ -1,6 +1,25 @@
-variable "name" {}
-variable "desc" {}
-variable "default_branch" {}
+variable "name" {
+  type        = string
+  description = "Repository name"
+}
+
+variable "description" {
+  type        = string
+  default     = ""
+  description = "Repository description"
+}
+
+variable "default_branch" {
+  type        = string
+  default     = "main"
+  description = "Default branch of the repository"
+}
+
+variable "branches" {
+  type        = list(string)
+  default     = ["release", "dev"]
+  description = "List of the repository branches"
+}
 
 variable "auto_init" {
   type        = string
