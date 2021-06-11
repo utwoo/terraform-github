@@ -32,9 +32,14 @@ provider "azurerm" {
   client_secret   = var.agent_client_secret
 }
 
-module "terraform_test" {
-  source = "./modules/repo-base"
-
-  name        = "terraform-test"
-  description = "this repo create by terraform."
+resource "azurerm_resource_group" "utwooGithubAction" {
+  name     = "utwooGithubAction"
+  location = "West US"
 }
+
+# module "terraform_test" {
+#   source = "./modules/repo-base"
+
+#   name        = "terraform-test"
+#   description = "this repo create by terraform."
+# }
