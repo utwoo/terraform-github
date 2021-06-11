@@ -9,6 +9,13 @@ terraform {
   }
 
   required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~>2.0.0"
+    }
+  }
+
+  required_providers {
     github = {
       source  = "integrations/github"
       version = "~> 4.0"
@@ -18,6 +25,10 @@ terraform {
 
 provider "github" {
   token = var.github_token
+}
+
+provider "azurerm" {
+  features {}
 }
 
 module "terraform_test" {
