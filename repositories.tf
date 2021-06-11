@@ -11,10 +11,10 @@ provider "github" {
   token = var.github_token
 }
 
-module github-test {
+module terraform_test {
     source = "./modules/repo-base"
 
-    name = "github-test"
-    desc = "github repo by terraform."
+    name = "terraform-test"
+    desc = "this repo create by terraform."
     default_branch = "master"
 }
