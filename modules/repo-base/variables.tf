@@ -1,4 +1,3 @@
-variable "github_token" {}
 variable "name" {}
 variable "desc" {}
 variable "default_branch" {}
