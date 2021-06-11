@@ -1,16 +1,16 @@
 terraform {
-  backend "azurerm" {
-    resource_group_name  = "utwoo-dev"
-    storage_account_name = "utterraformbackend"
-    container_name       = "general"
-    key                  = "github-repo.tfstate"
-  }
+#   backend "azurerm" {
+#     resource_group_name  = "utwoo-dev"
+#     storage_account_name = "utterraformbackend"
+#     container_name       = "general"
+#     key                  = "github-repo.tfstate"
+#   }
 
-  required_providers {
-    github = {
-      source  = "integrations/github"
-      version = "~> 4.0"
-    }
+#   required_providers {
+#     github = {
+#       source  = "integrations/github"
+#       version = "~> 4.0"
+#     }
 
     azurerm = {
       source  = "hashicorp/azurerm"
@@ -19,9 +19,9 @@ terraform {
   }
 }
 
-provider "github" {
-  token = var.github_token
-}
+# provider "github" {
+#   token = var.github_token
+# }
 
 provider "azurerm" {
   features {}
