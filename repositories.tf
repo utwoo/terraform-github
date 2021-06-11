@@ -3,7 +3,7 @@ terraform {
     storage_account_name = "utterraformbackend"
     container_name       = "general"
     key                  = "github-repo.tfstate"
-    access_key           =  var.storage_access_key
+    access_key           = "K6CE7Xyh4hwFwH/OKar607ypTajQ7AaVzNexgM4iBANslCZyRf9Q0qyUhbsCGcT2DsETqy0nP93stTkMARiu/g=="
   }
  
  required_providers {
