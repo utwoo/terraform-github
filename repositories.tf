@@ -1,4 +1,11 @@
 terraform {
+ backend "azurerm" {
+    storage_account_name = "utterraformbackend"
+    container_name       = "general"
+    key                  = "github-repo.tfstate"
+    access_key           =  var.storage_access_key
+  }
+ 
  required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
