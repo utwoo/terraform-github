@@ -1,7 +1,7 @@
 terraform {
   backend "azurerm" {
     resource_group_name  = "utwoo-dev"
-    storage_account_name = "tfstorage"
+    storage_account_name = "utterraformbackend"
     container_name       = "general"
     key                  = "github-repo.tfstate"
   }
