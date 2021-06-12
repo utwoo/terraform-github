@@ -1,4 +1,5 @@
 # Terraform: Kubernetes provider
 ## Tasks
 - [x] Module for namespace.
-- [ ] Module for services.
+- [x] Module for services.
+- [ ] Add deployment environment section.
