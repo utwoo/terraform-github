@@ -3,7 +3,7 @@ terraform {
     resource_group_name  = "utwoo-dev"
     storage_account_name = "utterraformbackend"
     container_name       = "general"
-    key                  = "github-repo.tfstate"
+    key                  = "tf-azure.tfstate"
   }
  
  required_providers {
