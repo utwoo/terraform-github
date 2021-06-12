@@ -1,9 +1,9 @@
 terraform {
  backend "azurerm" {
+    resource_group_name  = "utwoo-dev"
     storage_account_name = "utterraformbackend"
     container_name       = "general"
     key                  = "github-repo.tfstate"
-    access_key           = var.storage_access_key
   }
  
  required_providers {
@@ -17,10 +17,10 @@ terraform {
 provider "azurerm" {
   features {}
 
-  tenant_id       = var.tenant_id
   subscription_id = var.subscription_id
   client_id       = var.agent_client_id
   client_secret   = var.agent_client_secret
+  tenant_id       = var.tenant_id
 }
 
 resource "azurerm_resource_group" "utwooGithubAction" {
