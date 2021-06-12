@@ -23,7 +23,7 @@ provider "azurerm" {
   tenant_id       = var.tenant_id
 }
 
-resource "azurerm_resource_group" "utwooGithubAction" {
-  name     = "utwooGithubAction"
+resource "azurerm_resource_group" "utwGithubAction" {
+  name     = "utwGithubAction"
   location = "West US"
 }
