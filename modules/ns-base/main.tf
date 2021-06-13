@@ -7,7 +7,8 @@ terraform {
   }
 }
 
-resource "kubernetes_namespace" "ns" {
+# namespace
+resource "kubernetes_namespace" "base" {
   metadata {
     annotations = var.annotations
     labels = var.labels

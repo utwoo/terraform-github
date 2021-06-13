@@ -1,20 +1,19 @@
 variable "name" {
-  type        = string
-  description = "Name of deployment"
+  type = string
 }
 
-variable "namespace" { type = string }
+variable "namespace" {
+  type = string
+}
 
 variable "labels" {
-  type        = map(string)
-  default     = null
-  description = "Labels of deployment"
+  type    = map(string)
+  default = null
 }
 
 variable "annotations" {
-  type        = map(string)
-  default     = null
-  description = "Annotations of deployment"
+  type    = map(string)
+  default = null
 }
 
 variable "replicas" {
@@ -22,13 +21,23 @@ variable "replicas" {
   default = 1
 }
 
-variable "image" { type = string }
+variable "image" {
+  type = string
+}
 
-variable "service_type" { type = string }
+# ClusterIP,NodePort
+variable "service_type" {
+  type = string
+}
 
 variable "ports" {
   type = list(object({
     port        = number
     target_port = number
   }))
+}
+
+variable "environments" {
+  type = map
+  default = {}
 }

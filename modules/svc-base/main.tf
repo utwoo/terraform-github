@@ -7,11 +7,16 @@ terraform {
   }
 }
 
-resource "kubernetes_deployment" "deploy" {
+locals {
+  default_labels      = merge({ app = var.name }, var.labels)
+  default_annotations = merge({ createdBy = "terraform" }, var.annotations)
+}
+
+resource "kubernetes_deployment" "base" {
   metadata {
     namespace   = var.namespace
-    annotations = var.annotations
-    labels      = var.labels
+    annotations = local.default_annotations
+    labels      = local.default_labels
     name        = var.name
   }
 
@@ -19,31 +24,39 @@ resource "kubernetes_deployment" "deploy" {
     replicas = var.replicas
 
     selector {
-      match_labels = var.labels
+      match_labels = local.default_labels
     }
 
     template {
       metadata {
-        labels = var.labels
+        labels = local.default_labels
       }
       spec {
         container {
           image = var.image
           name  = var.name
+
+          dynamic "env" {
+            for_each = var.environments
+            content {
+              name   = env.key
+              value = env.value
+            }
+          }
         }
       }
     }
   }
 }
 
-resource "kubernetes_service" "svc" {
+resource "kubernetes_service" "base" {
   metadata {
     namespace = var.namespace
     name      = "${var.name}-svc"
-    labels    = var.labels
+    labels    = local.default_labels
   }
   spec {
-    selector = var.labels
+    selector = local.default_labels
     type     = var.service_type
     dynamic "port" {
       for_each = var.ports
